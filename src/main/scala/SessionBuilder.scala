@@ -14,7 +14,7 @@ object SessionBuilder {
       .enableHiveSupport()
       .getOrCreate
 
-    spark.sparkContext.setLogLevel("WARN")
+    spark.sparkContext.setLogLevel("INFO")
 
     spark
   }
