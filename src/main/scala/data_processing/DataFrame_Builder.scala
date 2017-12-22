@@ -20,6 +20,13 @@ object DataFrame_Builder {
       .format(filesFormate)
       .load(hoaxFilePath)
 
+
+    debunkDF.count()
+    debunkDF.show()
+
+    hoaxDF.count()
+    hoaxDF.show()
+
     (debunkDF, hoaxDF)
   }
 }
