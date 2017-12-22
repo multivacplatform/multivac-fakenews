@@ -1,4 +1,6 @@
 # multivac-fakenews
+## Introduction
+Detecting users and communities in Twitter which are propagating fake and biased news sources by comparing them against existing Fake News databases. 
 
 ## Code of Conduct
 
