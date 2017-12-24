@@ -4,8 +4,10 @@ Detecting users and communities in Twitter which are propagating fake and biased
 
 ## Data
 
-### FakeNews: Over 5000 hoax URLS constructed [by Decodex](http://www.lemonde.fr/verification/)
-### Embedding: 100-dimensional pre-trained GloVe embeddings of 400k words which trained on a 2014 dump of English Wikipedia.
+#### FakeNews: 
+* Over 5000 hoax URLS constructed [by Decodex](http://www.lemonde.fr/verification/)
+#### ML/Deep learning:
+* Embedding: 100-dimensional pre-trained GloVe embeddings of 400k words which trained on a 2014 dump of English Wikipedia.
 
 ## Code of Conduct
 
