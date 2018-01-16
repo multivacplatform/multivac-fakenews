@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/multivacplatform/multivac-fakenews.svg?branch=master)](https://travis-ci.org/multivacplatform/multivac-fakenews)
+
 # multivac-fakenews
 ## Introduction
 Detecting users and communities in Twitter which are propagating fake and biased news sources by comparing them against existing Fake News databases. 
