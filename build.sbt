@@ -23,18 +23,37 @@ resolvers ++= Seq(
   Resolver.sonatypeRepo("public")
 )
 
-libraryDependencies ++= Seq(
-  "org.apache.spark" %%"spark-core" % "2.2.0",
-  "org.apache.spark" %% "spark-sql" % "2.2.0",
-  "org.apache.spark" %% "spark-streaming" % "2.2.0",
-  "org.apache.spark" %% "spark-mllib" % "2.2.0",
-  "org.apache.spark" %% "spark-hive" % "2.2.0",
-  "org.apache.spark" %% "spark-graphx" % "2.2.0",
-  "org.apache.spark" %% "spark-yarn" % "2.2.0",
-  "com.typesafe" % "config" % "1.3.1",
-  "com.johnsnowlabs.nlp" %% "spark-nlp" % "1.2.3",
-  "edu.stanford.nlp" % "stanford-corenlp" % "3.7.0",
-  "edu.stanford.nlp" % "stanford-corenlp" % "3.7.0" classifier "models",
-  "com.intel.analytics.bigdl" % "bigdl-SPARK_2.2" % "0.3.0"
+libraryDependencies ++= {
+  val sparkVer = "2.2.0"
+  Seq(
+    "org.apache.spark" %% "spark-core" % sparkVer % "provided" withSources(),
+    "org.apache.spark" %% "spark-sql" % sparkVer,
+    "org.apache.spark" %% "spark-streaming" % sparkVer % "provided" withSources(),
+    "org.apache.spark" %% "spark-mllib" %sparkVer % "provided" withSources(),
+    "org.apache.spark" %% "spark-hive" % sparkVer,
+    "org.apache.spark" %% "spark-graphx" % sparkVer % "provided" withSources(),
+    "org.apache.spark" %% "spark-yarn" % sparkVer % "provided" withSources(),
+    "com.typesafe" % "config" % "1.3.2"
+  )
+}
 
-)
+assemblyMergeStrategy in assembly := {
+  case PathList("META-INF", xs @ _*) => MergeStrategy.discard
+  case x => MergeStrategy.first
+}
+
+assemblyExcludedJars in assembly := {
+  val cp = (fullClasspath in assembly).value
+  cp filter {
+    j => {
+      j.data.getName.startsWith("spark-core") ||
+        j.data.getName.startsWith("spark-sql") ||
+        j.data.getName.startsWith("spark-hive") ||
+        j.data.getName.startsWith("spark-mllib") ||
+        j.data.getName.startsWith("spark-graphx") ||
+        j.data.getName.startsWith("spark-yarn") ||
+        j.data.getName.startsWith("spark-streaming") ||
+        j.data.getName.startsWith("hadoop")
+    }
+  }
+}
