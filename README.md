@@ -1,6 +1,5 @@
-[![Build Status](https://travis-ci.org/multivacplatform/multivac-fakenews.svg?branch=master)](https://travis-ci.org/multivacplatform/multivac-fakenews)
+# multivac-fakenews [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/multivacplatform/multivac-fakenews/blob/master/LICENSE) [![Build Status](https://travis-ci.org/multivacplatform/multivac-fakenews.svg?branch=master)](https://travis-ci.org/multivacplatform/multivac-fakenews)
 
-# multivac-fakenews
 ## Introduction
 Detecting users and communities in Twitter which are propagating fake and biased news sources by comparing them against existing Fake News databases. 
 
